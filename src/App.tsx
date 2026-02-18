@@ -9,6 +9,8 @@ export type Page = 'home' | 'import' | 'parse';
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [file, setFile] = useState<File | null>(null);
+  const [individuals, setIndividuals] = useState<Individu[]>([]);
+  const [families, setFamilies] = useState<Famille[]>([]);
   
   return (
     <>
