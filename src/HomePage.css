@@ -1,0 +1,12 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.home-page button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
