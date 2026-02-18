@@ -52,7 +52,10 @@
   text-align: center;
   cursor: pointer;
   transition: background-color 0.2s, border-color 0.2s;
+  margin-top: 20px;
   margin-bottom: 20px;
+  padding: 20px;    /* <-- espace intérieur pour le texte et icône */
+  box-sizing: border-box; /* s'assure que padding ne change pas la taille totale */
 }
 .file-dropzone.dragging {
   background-color: #f0f8ff;
@@ -71,4 +74,10 @@
 }
 .analyze-button:hover {
   background-color: #000099;
+}
+
+/* Message d'erreur */
+.error-message {
+  color: red;
+  margin-top: 8px;
 }

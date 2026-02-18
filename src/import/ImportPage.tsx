@@ -11,6 +11,7 @@ interface ImportPageProps {
 export default function ImportPage({ setCurrentPage, file, setFile }: ImportPageProps) {
 
   const [isDragging, setIsDragging] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Gestion du drag & drop
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -26,10 +27,19 @@ export default function ImportPage({ setCurrentPage, file, setFile }: ImportPage
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = e.target.files?.[0] ?? null;
-    if (selectedFile) setFile(selectedFile);
+    const selectedFile = e.target.files?.[0] ?? null;  
+    if (selectedFile) {
+      // Vérifie l'extension .ged (insensible à la casse)
+      if (!selectedFile.name.toLowerCase().endsWith('.ged')) {
+        setError("⚠️ Veuillez sélectionner un fichier .ged valide");
+        setFile(null); // on ne garde pas le fichier invalide
+      } else {
+        setError(null);  // pas d'erreur
+        setFile(selectedFile);
+      }
+    }
   };
-
+  
   return (
     <div className="import-page">
 
@@ -62,7 +72,7 @@ export default function ImportPage({ setCurrentPage, file, setFile }: ImportPage
         {file ? (
           <p>{file.name} ({(file.size / 1024).toFixed(2)} Ko)</p>
         ) : (
-          <p>Glissez un fichier ici ou cliquez pour sélectionner</p>
+          <p>Glissez un fichier ici, <br />ou cliquez ici pour en sélectionner un</p>
         )}
         <input
           id="fileInput"
@@ -72,6 +82,8 @@ export default function ImportPage({ setCurrentPage, file, setFile }: ImportPage
           style={{ display: 'none' }}
         />
       </div>
+
+      {error && <p className="error-message">{error}</p>}
 
       {/* Bouton analyser si fichier chargé */}
       {file && (
