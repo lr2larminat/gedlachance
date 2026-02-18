@@ -1,16 +1,32 @@
-import { Page } from './App';
+import { useState } from 'react';
+import HomePage from './HomePage';
+import ImportPage from './import/ImportPage';
+import ParsePage from './import/ParsePage';
 
-interface HomePageProps {
-  setCurrentPage: React.Dispatch<React.SetStateAction<Page>>;
-}
+export type Page = 'home' | 'import' | 'parse';
 
-export default function HomePage({ setCurrentPage }: HomePageProps) {
+function App() {
+  const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [file, setFile] = useState<File | null>(null);
+
   return (
-    <div>
-      <h1>Accueil</h1>
-      <button onClick={() => setCurrentPage('import')}>
-        Importer un fichier
-      </button>
-    </div>
+    <>
+      {currentPage === 'home' && <HomePage setCurrentPage={setCurrentPage} />}
+      {currentPage === 'import' && (
+        <ImportPage
+          setCurrentPage={setCurrentPage}
+          file={file}
+          setFile={setFile}
+        />
+      )}
+      {currentPage === 'parse' && (
+        <ParsePage
+          setCurrentPage={setCurrentPage}
+          file={file}
+        />
+      )}
+    </>
   );
 }
+
+export default App;

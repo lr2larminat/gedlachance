@@ -1,11 +1,7 @@
 .parse-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  padding: 20px;
 }
-
-.parse-page button {
-  padding: 6px 12px;
+button {
+  margin-bottom: 20px;
   cursor: pointer;
 }

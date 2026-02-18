@@ -1,15 +1,28 @@
 .import-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  padding: 20px;
 }
-
-.import-page input {
-  margin: 10px 0;
-}
-
-.import-page button {
-  padding: 6px 12px;
+.close-button {
+  margin-bottom: 20px;
   cursor: pointer;
+}
+.dropzone {
+  border: 2px dashed #aaa;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.dropzone.dragging {
+  border-color: #333;
+}
+.file-info {
+  background: #f0f0f0;
+  padding: 10px;
+}
+button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.error {
+  color: red;
 }
