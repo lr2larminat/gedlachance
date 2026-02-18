@@ -44,7 +44,11 @@ export default function ImportPage({ setCurrentPage, file, setFile }: ImportPage
     <div className="import-page">
 
       {/* Croix haut droite */}
-      <button className="close-button" onClick={() => setCurrentPage('home')}>
+      <button className="close-button" onClick={() => 
+        {
+          setFile(null);
+          setCurrentPage('home');
+        }}>
         <svg
           className="close-icon"
           viewBox="0 0 24 24"
@@ -70,7 +74,11 @@ export default function ImportPage({ setCurrentPage, file, setFile }: ImportPage
         onClick={() => document.getElementById('fileInput')?.click()}
       >
         {file ? (
-          <p>{file.name} ({(file.size / 1024).toFixed(2)} Ko)</p>
+          <p>
+            Fichier sélectionné :<br />
+            {file.name} ({(file.size / 1024).toFixed(2)} Ko)<br /><br />
+            Vous pouvez importer un autre fichier en le glissant ou en le sélectionnant...
+          </p>
         ) : (
           <p>Glissez un fichier ici, <br />ou cliquez ici pour en sélectionner un</p>
         )}
