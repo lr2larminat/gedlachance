@@ -9,7 +9,7 @@ interface HomePageProps {
 export default function HomePage({ setCurrentPage }: HomePageProps) {
   return (
     <div className="home-page">
-      <h1>Bienvenue sur Ged'LaChance</h1>
+      <h1>Bienvenue sur Ged'LaChance v1</h1>
       <button onClick={() => setCurrentPage('import')}>
         Importer un fichier GEDCOM
       </button>
