@@ -2,15 +2,47 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  position: relative;
+  padding: 20px;
 }
 
-.parse-page p {
-  margin: 0.5rem 0;
+.page-title {
+  color: #0000CD;       /* titre bleu */
+  margin-top: 20px;
+  font-size: 1.8rem;
 }
 
-.parse-page button {
-  margin-top: 1rem;
-  padding: 0.6rem 1rem;
+/* Croix en haut à droite */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;           /* largeur fixe */
+  height: 32px;          /* hauteur fixe = largeur pour un cercle parfait */
+  border: 2px solid #0000CD;
+  border-radius: 50%;    /* rend le bouton parfaitement rond */
+  background-color: white;
+  padding: 0;            /* plus de padding pour éviter l’ovale */
+  display: flex;         /* pour centrer le SVG */
+  align-items: center;   /* centrer verticalement */
+  justify-content: center; /* centrer horizontalement */
   cursor: pointer;
+  transition: all 0.2s;
+}
+.close-button:hover {
+  background-color: #0000CD;
+}
+.close-button:hover svg {
+  stroke: white;
+}
+.close-icon {
+  width: 18px;       /* croix plus petite */
+  height: 18px;
+}
+
+/* AFFICHAGE DU FICHIER */
+.file-info {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
 }
