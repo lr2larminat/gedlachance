@@ -6,43 +6,69 @@
   padding: 20px;
 }
 
-.import-page input[type="file"] {
-  margin: 1rem 0;
+.import-title {
+  color: #0000CD;       /* titre bleu */
+  margin-bottom: 20px;
+  font-size: 1.8rem;
 }
 
-.import-page button {
-  margin-top: 1rem;
-  padding: 0.6rem 1rem;
-  cursor: pointer;
-}
-
-/* Bouton croix en haut à droite */
+/* Croix en haut à droite */
 .close-button {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 36px;
-  height: 36px;
-  background: #ffffff;          /* fond blanc */
-  border: 2px solid #0000CD;   /* contour bleu */
-  border-radius: 50%;           /* rond parfait */
+  top: 10px;
+  right: 10px;
+  width: 32px;           /* largeur fixe */
+  height: 32px;          /* hauteur fixe = largeur pour un cercle parfait */
+  border: 2px solid #0000CD;
+  border-radius: 50%;    /* rend le bouton parfaitement rond */
+  background-color: white;
+  padding: 0;            /* plus de padding pour éviter l’ovale */
+  display: flex;         /* pour centrer le SVG */
+  align-items: center;   /* centrer verticalement */
+  justify-content: center; /* centrer horizontalement */
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  padding: 0;
-}
-.close-button svg {
-  width: 16px;                  /* taille de la croix */
-  height: 16px;
-  stroke: #0000CD;              /* croix bleue par défaut */
-  stroke-width: 2.5;            /* plus visible */
-  transition: stroke 0.2s ease;
+  transition: all 0.2s;
 }
 .close-button:hover {
-  background: #0000CD;          /* fond bleu au survol */
+  background-color: #0000CD;
 }
 .close-button:hover svg {
-  stroke: #ffffff;              /* croix blanche au survol */
+  stroke: white;
+}
+.close-icon {
+  width: 18px;       /* croix plus petite */
+  height: 18px;
+}
+
+/* Zone carrée pour drag & drop / clic */
+.file-dropzone {
+  width: 250px;
+  height: 250px;
+  border: 2px dashed #0000CD;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  margin-bottom: 20px;
+}
+.file-dropzone.dragging {
+  background-color: #f0f8ff;
+  border-color: #0000CD;
+}
+
+/* Bouton analyser */
+.analyze-button {
+  background-color: #0000CD;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.analyze-button:hover {
+  background-color: #000099;
 }
