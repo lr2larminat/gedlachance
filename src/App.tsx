@@ -11,7 +11,9 @@ function App() {
 
   return (
     <>
-      {currentPage === 'home' && <HomePage setCurrentPage={setCurrentPage} />}
+      {currentPage === 'home' && (
+        <HomePage setCurrentPage={setCurrentPage} />
+      )}
       {currentPage === 'import' && (
         <ImportPage
           setCurrentPage={setCurrentPage}

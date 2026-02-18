@@ -1,32 +1,18 @@
-import { useState } from 'react';
-import HomePage from './HomePage';
-import ImportPage from './import/ImportPage';
-import ParsePage from './import/ParsePage';
+import './HomePage.css';
 
-export type Page = 'home' | 'import' | 'parse';
+import type { Page } from './App';
 
-function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
-  const [file, setFile] = useState<File | null>(null);
-
-  return (
-    <>
-      {currentPage === 'home' && <HomePage setCurrentPage={setCurrentPage} />}
-      {currentPage === 'import' && (
-        <ImportPage
-          setCurrentPage={setCurrentPage}
-          file={file}
-          setFile={setFile}
-        />
-      )}
-      {currentPage === 'parse' && (
-        <ParsePage
-          setCurrentPage={setCurrentPage}
-          file={file}
-        />
-      )}
-    </>
-  );
+interface HomePageProps {
+  setCurrentPage: React.Dispatch<React.SetStateAction<Page>>;
 }
 
-export default App;
+export default function HomePage({ setCurrentPage }: HomePageProps) {
+  return (
+    <div className="home-page">
+      <h1>Bienvenue sur GedLaChance</h1>
+      <button onClick={() => setCurrentPage('import')}>
+        Importer un fichier GEDCOM
+      </button>
+    </div>
+  );
+}

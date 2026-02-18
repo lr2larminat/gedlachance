@@ -1,28 +1,16 @@
 .import-page {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
 }
-.close-button {
-  margin-bottom: 20px;
+
+.import-page input[type="file"] {
+  margin: 1rem 0;
+}
+
+.import-page button {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
   cursor: pointer;
-}
-.dropzone {
-  border: 2px dashed #aaa;
-  padding: 40px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-.dropzone.dragging {
-  border-color: #333;
-}
-.file-info {
-  background: #f0f0f0;
-  padding: 10px;
-}
-button {
-  padding: 10px 15px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-.error {
-  color: red;
 }
