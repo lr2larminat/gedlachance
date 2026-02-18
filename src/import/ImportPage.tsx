@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './ImportPage.css';
 import type { Page } from '../App';
 
@@ -18,6 +19,18 @@ export default function ImportPage({ setCurrentPage, file, setFile }: ImportPage
 
   return (
     <div className="import-page">
+
+      {/* ========== CROIX EN HAUT À DROITE ========== */}
+      <button
+        className="close-button"
+        onClick={() => setCurrentPage('home')}
+        title="Retour à l'accueil" >
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="6" y1="6" x2="18" y2="18" />
+          <line x1="6" y1="18" x2="18" y2="6" />
+        </svg>
+      </button>
+
       <h1>Importer un fichier GEDCOM</h1>
       <input type="file" accept=".ged" onChange={handleFileChange} />
       {file && (

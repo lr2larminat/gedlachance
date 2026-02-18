@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  position: relative;
+  padding: 20px;
 }
 
 .import-page input[type="file"] {
@@ -13,4 +14,35 @@
   margin-top: 1rem;
   padding: 0.6rem 1rem;
   cursor: pointer;
+}
+
+/* Bouton croix en haut à droite */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  background: #ffffff;          /* fond blanc */
+  border: 2px solid #0000CD;   /* contour bleu */
+  border-radius: 50%;           /* rond parfait */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+.close-button svg {
+  width: 16px;                  /* taille de la croix */
+  height: 16px;
+  stroke: #0000CD;              /* croix bleue par défaut */
+  stroke-width: 2.5;            /* plus visible */
+  transition: stroke 0.2s ease;
+}
+.close-button:hover {
+  background: #0000CD;          /* fond bleu au survol */
+}
+.close-button:hover svg {
+  stroke: #ffffff;              /* croix blanche au survol */
 }
