@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Individu, Famille } from './types';
+import { loadIndividuals, loadFamilies, saveData } from './storage';
 import HomePage from './HomePage';
 import ImportPage from './import/ImportPage';
 import ParsePage from './import/ParsePage';
@@ -12,6 +13,11 @@ function App() {
   const [individuals, setIndividuals] = useState<Individu[]>([]);
   const [families, setFamilies] = useState<Famille[]>([]);
   
+  // Sauvegarde automatique à chaque changement
+  useEffect(() => {
+    saveData(individuals, families);
+  }, [individuals, families]);
+
   return (
     <>
       {currentPage === 'home' && (
