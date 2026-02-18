@@ -75,12 +75,27 @@ export default function ImportPage({ setCurrentPage, file, setFile }: ImportPage
       >
         {file ? (
           <p>
-            Fichier sélectionné :<br />
-            {file.name} ({(file.size / 1024).toFixed(2)} Ko)<br /><br />
+            <b>Fichier sélectionné :<br />
+            {file.name}</b> <br /><br />
             Vous pouvez importer un autre fichier en le glissant ou en le sélectionnant...
           </p>
         ) : (
-          <p>Glissez un fichier ici, <br />ou cliquez ici pour en sélectionner un</p>
+          <div className="dropzone-default">
+          {/* Icône import */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            fill="#0000CD"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 20h14v-2H5v2zm7-18l-7 7h4v6h6v-6h4l-7-7z"/>
+          </svg>
+          <p>
+          <br />Glissez un fichier ici, <br />
+            ou cliquez ici pour en sélectionner un
+          </p>
+        </div>
         )}
         <input
           id="fileInput"
@@ -96,7 +111,7 @@ export default function ImportPage({ setCurrentPage, file, setFile }: ImportPage
       {/* Bouton analyser si fichier chargé */}
       {file && (
         <button className="analyze-button" onClick={() => setCurrentPage('parse')}>
-          Analyser le fichier
+          Importer le fichier
         </button>
       )}
     </div>
