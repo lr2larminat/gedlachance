@@ -1,17 +1,16 @@
-import React from 'react';
-import './HomePage.css';
+import { Page } from './App';
 
 interface HomePageProps {
-  setCurrentPage: (page: string) => void;
+  setCurrentPage: React.Dispatch<React.SetStateAction<Page>>;
 }
 
-function HomePage({ setCurrentPage }: HomePageProps) {
+export default function HomePage({ setCurrentPage }: HomePageProps) {
   return (
-    <div className="home-page">
+    <div>
       <h1>Accueil</h1>
-      <button onClick={() => setCurrentPage('import')}>Importer un fichier GEDCOM</button>
+      <button onClick={() => setCurrentPage('import')}>
+        Importer un fichier
+      </button>
     </div>
   );
 }
-
-export default HomePage;

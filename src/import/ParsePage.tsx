@@ -1,14 +1,13 @@
-import React from 'react';
-import './ParsePage.css';
+import { Page } from '../App';
 
 interface ParsePageProps {
-  setCurrentPage: (page: string) => void;
+  setCurrentPage: React.Dispatch<React.SetStateAction<Page>>;
   file: File | null;
 }
 
-function ParsePage({ setCurrentPage, file }: ParsePageProps) {
+export default function ParsePage({ setCurrentPage, file }: ParsePageProps) {
   return (
-    <div className="parse-page">
+    <div>
       <h1>Résultat du parsing GEDCOM</h1>
       {file ? (
         <>
@@ -16,11 +15,10 @@ function ParsePage({ setCurrentPage, file }: ParsePageProps) {
           <p>Taille du fichier : {(file.size / 1024).toFixed(2)} Ko</p>
         </>
       ) : (
-        <p>⚠️ Aucun fichier sélectionné !</p>
+        <p>⚠️ Aucun fichier fourni !</p>
       )}
+
       <button onClick={() => setCurrentPage('import')}>🔙 Retour à l'import</button>
     </div>
   );
 }
-
-export default ParsePage;
