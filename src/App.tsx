@@ -29,7 +29,10 @@ function App() {
           setCurrentPage={setCurrentPage}
           file={file}
           setFile={setFile}
-        />
+          individuals={individuals}
+          setIndividuals={setIndividuals}
+          families={families}
+          setFamilies={setFamilies}        />
       )}
     </>
   );
